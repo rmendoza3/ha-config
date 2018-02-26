@@ -1,0 +1,83 @@
+- alias: Turn on front door outside light when dark
+  trigger:
+    - platform: sun
+      event: sunset
+      offset: "+00:30:00"
+  action:
+    - service: switch.turn_on
+      entity_id: switch.ge_unknown_type4952_id3037_switch_2
+    - service: notify.reuben
+      data:
+        message: "Front door outside light turned on"
+    - service: notify.ios_sarahs_iphone
+      data:
+        message: "Front door outside light turned on"
+
+- alias: Turn off front door outside light at night
+  trigger:
+    platform: time
+    at: '23:35:00'
+  action:
+    - service: switch.turn_off
+      entity_id: switch.ge_unknown_type4952_id3037_switch_2
+    - service: notify.reuben
+      data:
+        message: "Front door outside light turned off"
+    - service: notify.ios_sarahs_iphone
+      data:
+        message: "Front door outside light turned off"
+
+- alias: Turn on front door inside light when just arrived
+  trigger:
+    - platform: state
+      entity_id: sensor.schlage_be469nxcen_touchscreen_deadbolt_alarm_type
+      to: '19'
+  condition:
+    condition: and
+    conditions:
+      - condition: sun
+        after: sunset
+      - condition: or
+        conditions:
+          - condition: state
+            entity_id: binary_sensor.people_home
+            state: 'off'
+          - condition: state
+            entity_id: input_select.reuben_status_dropdown
+            state: 'Just Arrived'
+          - condition: state
+            entity_id: input_select.sarah_status_dropdown
+            state: 'Just Arrived'
+  action:
+    - service: switch.turn_on
+      entity_id: switch.ge_unknown_type4952_id3037_switch_2
+    - service: notify.reuben
+      data:
+        message: "Front door outside light turned on by arrival"
+    - service: notify.ios_sarahs_iphone
+      data:
+        message: "Front door outside light turned on by arrival"
+
+- alias: Turn on front door outside lights when arriving at night after lights out
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.ring_front_door_motion
+      to: 'on'
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: switch.ge_unknown_type4952_id3037_switch_2
+        state: 'off'
+      - condition: sun
+        after: sunset
+        before: sunrise
+  action:
+    - service: switch.turn_on
+      entity_id: switch.ge_unknown_type4952_id3037_switch_2
+    - service: notify.reuben
+      data:
+        message: "Turned on front door outside lights by motion detected by doorbell"
+    - service: notify.ios_sarahs_iphone
+      data:
+        message: "Turned on front door outside lights by motion detected by doorbell"

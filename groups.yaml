@@ -1,0 +1,91 @@
+media:
+  name: Media
+  view: true
+  entities:
+    - media_player.kodi
+    - media_player.kitchen_home
+    - media_player.living_room_tv
+    - media_player.bedroom_tv
+    - media_player.master_bedroom_tv
+    - media_player.play_room_tv
+    - media_player.remote
+
+packages:
+  name: Packages
+  view: true
+  entities:
+          #    - sensor.usps_mail
+          #    - sensor.usps_packages
+          #    - sensor.usps
+    - sensor.ups
+    - sensor.fedex
+
+reuben:
+  entities:
+    - device_tracker.reuben_motog5s
+    - device_tracker.moto_g_5s_plus
+
+sarah:
+  entities:
+    - device_tracker.sarahs_iphone
+    - device_tracker.sarahs_iphone_2
+
+#people_status:
+#  name: People Status
+#  entities:
+#    - sensor.reuben_status
+#    - sensor.sarah_status
+
+nest_thermostat:
+  name: Nest
+  entities:
+    - sensor.casa_mendoza_thermostat_hallway_humidity
+    - sensor.casa_mendoza_thermostat_hallway_hvac_state
+    - sensor.casa_mendoza_thermostat_hallway_operation_mode
+    - sensor.casa_mendoza_thermostat_hallway_target
+    - sensor.casa_mendoza_thermostat_hallway_temperature
+
+schlage_frontdoor:
+  name: Front Door Lock Info
+  entities:
+    - sensor.schlage_be469nxcen_touchscreen_deadbolt_access_control
+    - sensor.schlage_be469nxcen_touchscreen_deadbolt_alarm_level
+    - sensor.schlage_be469nxcen_touchscreen_deadbolt_alarm_type
+    - sensor.schlage_be469nxcen_touchscreen_deadbolt_burglar
+    - sensor.schlage_be469nxcen_touchscreen_deadbolt_power_management
+    - sensor.schlage_be469nxcen_touchscreen_deadbolt_sourcenodeid
+    - sensor.schlage_be469nxcen_touchscreen_deadbolt_system
+
+front_door:
+  name: Front Door
+  entities:
+    - sensor.front_last_action
+    - sensor.front_door_code
+    - sensor.frontdoorlockbattery
+    #- binary_sensor.ring_front_door_ding
+    #- binary_sensor.ring_front_door_motion
+    #- sensor.ring_front_door_battery
+    #- sensor.ring_front_door_last_activity
+    #- sensor.ring_front_door_last_ding
+    #- sensor.ring_front_door_last_motion
+    #- sensor.ring_front_door_volume
+    #- sensor.ring_front_door_wifi_signal_category
+    #- sensor.ring_front_door_wifi_signal_strength
+
+pihole:
+  name: Pi-hole
+  entities:
+    - sensor.pihole_ads_blocked_today
+    - sensor.pihole_ads_percentage_blocked_today
+    - sensor.pihole_dns_queries_cached
+    - sensor.pihole_dns_queries_forwarded
+    - sensor.pihole_dns_queries_today
+    - sensor.pihole_dns_unique_clients
+    - sensor.pihole_dns_unique_domains
+    - sensor.pihole_domains_blocked
+
+sarah_phone:
+  name: Sarah's Phone
+  entities:
+    - sensor.sarahs_iphone_battery_level
+    - sensor.sarahs_iphone_battery_state

@@ -1,0 +1,28 @@
+- alias: Outside Garage Lights On
+  trigger:
+    - platform: sun
+      event: sunset
+      offset: "+00:30:00"
+  action:
+    - service: switch.turn_on
+      entity_id: switch.ge_unknown_type4952_id3037_switch_3
+    - service: notify.reuben
+      data:
+        message: "Outside garage lights turned on"
+    - service: notify.ios_sarahs_iphone
+      data:
+        message: "Outside garage lights turned on"
+
+- alias: Outside Garage Lights Off
+  trigger:
+    platform: time
+    at: '23:35:00'
+  action:
+    - service: switch.turn_off
+      entity_id: switch.ge_unknown_type4952_id3037_switch_3
+    - service: notify.reuben
+      data:
+        message: "Outside garage lights turned off"
+    - service: notify.ios_sarahs_iphone
+      data:
+        message: "Outside garage lights turned off"

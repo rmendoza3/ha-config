@@ -1,0 +1,73 @@
+automation.update_available_notifications:
+  friendly_name: Home Assistant Update Available
+  hidden: true
+
+media_player.kitchen_home:
+  google_assistant: false
+
+input_select.reuben_status_dropdown:
+  hidden: true
+
+input_select.sarah_status_dropdown:
+  hidden: true
+
+group.reuben:
+  hidden: true
+
+group.sarah:
+  hidden: true
+
+group.all_automations:
+  hidden: true
+
+zwave.schlage_be469nxcen_touchscreen_deadbolt:
+  friendly_name: Front Door Lock Zwave
+
+lock.schlage_be469nxcen_touchscreen_deadbolt_locked:
+  friendly_name: Front Door Lock
+
+zwave.ge_unknown_type4952_id3037:
+  friendly_name: Front Door Inside Light Zwave
+
+zwave.ge_unknown_type4952_id3037_2:
+  friendly_name: Front Door Outside Light Zwave
+
+zwave.ge_unknown_type4952_id3037_3:
+  friendly_name: Christmas Lights Zwave
+
+switch.ge_unknown_type4952_id3037_switch:
+  friendly_name: Front Door Inside Light
+
+switch.ge_unknown_type4952_id3037_switch_2:
+  friendly_name: Front Door Outside Light
+
+switch.ge_unknown_type4952_id3037_switch_3:
+  friendly_name: Outside Garage Lights
+
+device_tracker.moto_g_5s_plus:
+  hidden: false
+
+device_tracker.reuben_motog5s:
+  hidden: false
+
+device_tracker.sarahs_iphone:
+  hidden: true
+
+device_tracker.sarahs_iphone_2:
+  hidden: false
+
+sensor.casa_mendoza_thermostat_hallway_fan:
+  friendly_name: Thermostat fan
+
+sensor.casa_mendoza_thermostat_hallway_has_leaf:
+  friendly_name: Thermostat has leaf
+
+sensor.casa_mendoza_thermostat_hallway_is_locked:
+  friendly_name: Thermostat is locked
+
+sensor.casa_mendoza_thermostat_hallway_is_using_emergency_heat:
+  friendly_name: Thermostat is using emergency heat
+
+sensor.casa_mendoza_thermostat_hallway_online:
+  friendly_name: Thermostat online
+

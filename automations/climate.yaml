@@ -1,0 +1,13 @@
+- alias: "Nest While Home"
+  trigger:
+    - platform: template
+      value_template: "{% if is_state_attr('climate.casa_mendoza_hallway', 'away_mode', 'on') %}true{% endif %}"
+  condition:
+    - condition: state
+      entity_id: binary_sensor.people_home
+      state: 'home'
+  action:
+    service: climate.set_away_mode
+    data:
+      away_mode: off
+

@@ -1,0 +1,3 @@
+- platform: owntracks_http
+
+- platform: bluetooth_tracker

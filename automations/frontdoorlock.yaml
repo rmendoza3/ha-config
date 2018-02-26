@@ -1,0 +1,64 @@
+- alias: Front Door Locked  By Outside Button Notification
+  trigger:
+    - platform: state
+      entity_id: sensor.schlage_be469nxcen_touchscreen_deadbolt_alarm_type
+      to: '18'
+  action:
+    - service: notify.reuben
+      data:
+        message: "Front door locked by outside button"
+    - service: notify.ios_sarahs_iphone
+      data:
+        message: "Front door locked by outside button"
+
+- alias: Front Door Unlocked By User Notification
+  trigger:
+    - platform: state
+      entity_id: sensor.schlage_be469nxcen_touchscreen_deadbolt_alarm_type
+      to: '19'
+  action:
+    - service: notify.reuben
+      data_template:
+        message: !secret frontdoorunlockedbyusers
+    - service: notify.ios_sarahs_iphone
+      data_template:
+        message: !secret frontdoorunlockedbyusers
+
+- alias: Front Door Locked From Inside Notification
+  trigger:
+    - platform: state
+      entity_id: sensor.schlage_be469nxcen_touchscreen_deadbolt_alarm_type
+      to: '21'
+  action:
+    - service: notify.reuben
+      data:
+        message: "Front door locked from inside"
+    - service: notify.ios_sarahs_iphone
+      data:
+        message: "Front door locked from inside"
+
+- alias: Front Door Unlocked From Inside Notification
+  trigger:
+    - platform: state
+      entity_id: sensor.schlage_be469nxcen_touchscreen_deadbolt_alarm_type
+      to: '22'
+  action:
+    - service: notify.reuben
+      data:
+        message: "Front door unlocked from inside"
+    - service: notify.ios_sarahs_iphone
+      data:
+        message: "Front door unlocked from inside"
+
+- alias: Front Door AutoLock Notification
+  trigger:
+    - platform: state
+      entity_id: sensor.schlage_be469nxcen_touchscreen_deadbolt_alarm_type
+      to: '27'
+  action:
+    - service: notify.reuben
+      data:
+        message: "Front door was auto-locked"
+    - service: notify.ios_sarahs_iphone
+      data:
+        message: "Front door was auto-locked"

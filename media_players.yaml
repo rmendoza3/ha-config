@@ -1,0 +1,35 @@
+- platform: kodi
+  host: !secret kodi_ip
+  port: 8080
+  user: kodi
+
+- platform: cast
+  host: 192.168.0.20
+  name: Google Home
+
+- platform: cast
+  host: 192.168.0.14
+  name: Master Bedroom Cast
+
+- platform: cast
+  host: 192.168.0.23
+  name: Living Room Cast
+
+- platform: cast
+  host: 192.168.0.26
+  name: MendozaCast
+
+- platform: cast
+  host: 192.168.0.27
+  name: KidCast
+
+- platform: samsungtv
+  host: 192.168.0.9
+  port: 8001
+  name: LR TV
+  #mac: 48:1D:70:4B:52:CA
+
+#- platform: directv
+#host: 192.168.0.5
+#port: 8080
+#name: Directv

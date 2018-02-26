@@ -1,0 +1,3 @@
+- platform: pushbullet
+  name: reuben
+  api_key: !secret pushbullet_token

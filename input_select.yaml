@@ -1,0 +1,19 @@
+reuben_status_dropdown:
+  name: Reuben
+  options:
+    - Home
+    - Just Arrived
+    - Just Left
+    - Away
+    - Extended Away
+  initial: Home
+
+sarah_status_dropdown:
+  name: Sarah
+  options:
+    - Home
+    - Just Arrived
+    - Just Left
+    - Away
+    - Extended Away
+  initial: Home

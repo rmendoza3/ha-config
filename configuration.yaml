@@ -1,0 +1,103 @@
+homeassistant:
+  # Name of the location where Home Assistant is running
+  name: Home
+  # Location required to calculate the time the sun rises and sets
+  latitude: !secret home_latitude
+  longitude: !secret home_longitude
+  # Impacts weather/sunrise data (altitude above sea level in meters)
+  elevation: !secret home_elevation
+  # metric for Metric, imperial for Imperial
+  unit_system: imperial
+  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  time_zone: !secret home_timezone
+  # Customization file
+  customize: !include customize.yaml
+
+# Show links to resources in log and frontend
+#introduction:
+
+# Enables the frontend
+frontend:
+
+# Enables configuration UI
+config:
+
+http:
+  api_password: !secret http_password
+  base_url: !secret http_url
+  ssl_certificate: !secret ssl_certificate
+  ssl_key: !secret ssl_key
+
+# Checks for available updates
+# Note: This component will send some information about your system to
+# the developers to assist with development of Home Assistant.
+# For more information, please see:
+# https://home-assistant.io/blog/2016/10/25/explaining-the-updater/
+updater:
+  # Optional, allows Home Assistant developers to focus on popular components.
+  # include_used_components: true
+
+# Discover some devices automatically
+#discovery:
+
+# Allows hassio component
+hassio:
+
+# Allows you to issue voice commands from the frontend in enabled browsers
+conversation:
+
+# Enables support for tracking state changes over time
+history:
+
+# View all events in a logbook
+logbook:
+
+# Enables a map showing the location of tracked devices
+map:
+
+# Track the sun
+sun:
+
+# Enable ios app
+ios:
+
+# Text to speech
+tts: !include tts.yaml
+
+# Enable Nest Account
+nest: !include nest.yaml
+
+# Enable Ring Account
+#ring: !include ring.yaml
+
+# Enable Z-Wave
+zwave: !include zwave.yaml
+
+# Enable Google Assistant Actions
+google_assistant: !include google_assistant.yaml
+
+# Enable USPS
+#usps: !include usps.yaml
+
+camera: !include cameras.yaml
+
+sensor: !include sensors.yaml
+
+binary_sensor: !include binary_sensors.yaml
+
+device_tracker: !include device_tracker.yaml
+
+notify: !include notify.yaml
+ 
+media_player: !include media_players.yaml
+
+group: !include groups.yaml
+
+#automation: !include automations.yaml
+automation: !include_dir_merge_list automations/
+
+script: !include scripts.yaml
+
+panel_iframe: !include panel_iframes.yaml
+
+input_select: !include input_select.yaml
