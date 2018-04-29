@@ -81,3 +81,69 @@
     - service: notify.ios_sarahs_iphone
       data:
         message: "Turned on front door outside lights by motion detected by doorbell"
+
+- alias: Front door light on at night
+  trigger:
+    - platform: state
+      entity_id: sensor.schlage_be469nxcen_touchscreen_deadbolt_alarm_type
+      to: '22'
+  condition:
+    condition: and
+    conditions:
+      - condition: numeric_state
+        entity_id: sensor.ha_uptime
+        above: 5
+      - condition: or
+        conditions:
+          - condition: time
+            after: '23:30:00'
+          - condition: sun
+            before: sunrise
+  action:
+    - service: switch.turn_on
+      entity_id: switch.ge_unknown_type4952_id3037_switch_2
+    - service: switch.turn_on
+      entity_id: switch.ge_unknown_type4952_id3037_switch_3
+    - service: notify.reuben
+      data:
+        message: "Front door outside light turned on by door open at night"
+    - service: notify.ios_sarahs_iphone
+      data:
+        message: "Front door outside light turned on by door open at night"
+
+- alias: Front door light off after door open
+  trigger:
+    - platform: state
+      entity_id: sensor.schlage_be469nxcen_touchscreen_deadbolt_alarm_type
+      to: '27'
+      for:
+        minutes: 5
+    - platform: state
+      entity_id: sensor.schlage_be469nxcen_touchscreen_deadbolt_alarm_type
+      to: '18'
+      for:
+        minutes: 5
+  condition:
+    condition: and
+    conditions:
+      - condition: numeric_state
+        entity_id: sensor.ha_uptime
+        above: 5
+      - condition: or
+        conditions:
+          - condition: time
+            after: '23:30:00'
+          - condition: sun
+            before: sunrise
+  action:
+    - delay: '00:05:00'
+    - service: switch.turn_off
+      entity_id: switch.ge_unknown_type4952_id3037_switch_2
+    - service: switch.turn_off
+      entity_id: switch.ge_unknown_type4952_id3037_switch_3
+    - service: notify.reuben
+      data:
+        message: "Front door outside light turned off after door open"
+    - service: notify.ios_sarahs_iphone
+      data:
+        message: "Front door outside light turned off after door open"

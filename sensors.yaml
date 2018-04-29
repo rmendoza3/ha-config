@@ -10,6 +10,10 @@
   username: !secret fedex_user
   password: !secret fedex_password
 
+- platform: uptime
+  name: ha_uptime
+  unit_of_measurement: minutes
+
 #- platform: pi_hole
 
 - platform: template

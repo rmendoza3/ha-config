@@ -1,8 +1,12 @@
-- alias: Front Door Locked  By Outside Button Notification
+- alias: Front Door Locked By Outside Button Notification
   trigger:
     - platform: state
       entity_id: sensor.schlage_be469nxcen_touchscreen_deadbolt_alarm_type
       to: '18'
+  condition:
+    - condition: numeric_state
+      entity_id: sensor.ha_uptime
+      above: 5
   action:
     - service: notify.reuben
       data:
@@ -16,6 +20,10 @@
     - platform: state
       entity_id: sensor.schlage_be469nxcen_touchscreen_deadbolt_alarm_type
       to: '19'
+  condition:
+    - condition: numeric_state
+      entity_id: sensor.ha_uptime
+      above: 5
   action:
     - service: notify.reuben
       data_template:
@@ -29,6 +37,10 @@
     - platform: state
       entity_id: sensor.schlage_be469nxcen_touchscreen_deadbolt_alarm_type
       to: '21'
+  condition:
+    - condition: numeric_state
+      entity_id: sensor.ha_uptime
+      above: 5
   action:
     - service: notify.reuben
       data:
@@ -42,6 +54,10 @@
     - platform: state
       entity_id: sensor.schlage_be469nxcen_touchscreen_deadbolt_alarm_type
       to: '22'
+  condition:
+    - condition: numeric_state
+      entity_id: sensor.ha_uptime
+      above: 5
   action:
     - service: notify.reuben
       data:
@@ -55,6 +71,10 @@
     - platform: state
       entity_id: sensor.schlage_be469nxcen_touchscreen_deadbolt_alarm_type
       to: '27'
+  condition:
+    - condition: numeric_state
+      entity_id: sensor.ha_uptime
+      above: 5
   action:
     - service: notify.reuben
       data:

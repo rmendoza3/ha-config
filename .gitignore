@@ -27,3 +27,5 @@ ip_bans.yaml
 !/.gitignore
 config
 ozw_config
+gactions
+entity_registry.yaml
